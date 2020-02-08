@@ -1,0 +1,22 @@
+const once = (callback) => {
+  let isCalled = false;
+  let storedResult;
+  
+  const oncifiedCb = (...args) => {
+    if (!isCalled) {
+      storedResult = callback(...args);
+      isCalled = true;
+    }
+    return storedResult;
+  }
+  return oncifiedCb;
+}
+
+const addByTwoOnce = once(function(num) {
+  return num + 2;
+});
+
+// UNCOMMENT THESE TO TEST YOUR WORK!
+console.log(addByTwoOnce(5));  //should log 7
+console.log(addByTwoOnce(10));  //should log 7
+console.log(addByTwoOnce(9001));  //should log 7
