@@ -1,0 +1,22 @@
+const censor = () => {
+  let result = {};
+  
+  function myFunction(str1, str2) {
+    if (arguments.length === 2) {
+      result[str1] = str2;
+    } else {
+      for (let property in result) {
+        str1 = str1.replace(property, result[property]);
+      }
+      return str1;
+    }
+  }
+  
+  return myFunction;
+}
+
+// Uncomment these to check your work!
+const changeScene = censor();
+changeScene('dogs', 'cats');
+changeScene('quick', 'slow');
+console.log(changeScene('The quick, brown fox jumps over the lazy dogs.')); // should log: 'The slow, brown fox jumps over the lazy cats.'
