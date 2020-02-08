@@ -1,0 +1,10 @@
+const createFunction = () => {
+  const printHelloWorld = () => {
+    return 'hello world';
+  }
+  return printHelloWorld;
+}
+
+// Uncomment these to check your work!
+const myFunction = createFunction();
+console.log(myFunction()); //should log: 'hello world'
