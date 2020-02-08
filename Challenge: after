@@ -1,0 +1,22 @@
+const after = (number, callback) => {
+  let count = 0;
+  
+  const afterify = (...args) => {
+    if (count < (number - 1)) {
+      count++;
+      return;
+    } 
+    if (count >= (number -1)) {
+      return callback(...args);
+    }
+  }
+  return afterify;
+}
+
+const called = function(string) { return('hello ' + string); };
+const afterCalled = after(3, called);
+
+// UNCOMMENT THESE LINES TO TEST YOUR WORK
+console.log(afterCalled('world')); // -> nothing is printed
+console.log(afterCalled('world')); // -> nothing is printed
+console.log(afterCalled('world')); // -> 'hello world' is printed
